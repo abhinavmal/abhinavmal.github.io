@@ -227,7 +227,7 @@ $(document).click(function(loc){
 });
 
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 
 function inName(){
 	var names = bio.name.split(" ");
