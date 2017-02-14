@@ -22,13 +22,16 @@ This is empty on purpose! Your code to build the resume will go here.
  // console.log(HTMLheaderName)
 
  var name = "Abhinav Malhotra";
- var role = "Full-Stack Engineer";
+ var role = "Web and App Development";
  var email = "abhinav@utexas.edu";
  // var picUrl = "file:///Users/abhinav/Downloads/abhinav_fp.jpg";
- var picUrl = "images/fry.jpg"
+ // var picUrl = "images/Abhinav.jpg"
+ var picUrl ="images/Abhinav.jpg";
  var welcomeMsg = "Hello! Welcome to my online resume!";
  var skills = ["Java", "Python", "C", "Android", "Django"];
 
+
+// <a href="https://github.com/abhinavmal">abhinavmal</a>'
 
  var bio = {
  	"name" : name,
@@ -36,7 +39,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	"contacts" : {
  		"email" : email,
  		"mobile" :  "+1-512-698-7396",
- 		"github" : "abhinavmal",
+ 		"github" : 'abhinavmal',
  		"blog" : "www.abhinavmalhotra.in",
  		"location" : "Austin, TX"
  	},
@@ -49,7 +52,7 @@ This is empty on purpose! Your code to build the resume will go here.
  work.jobs = [
  	{
  		"employer" : "Texas Advanced Computing Center (TACC), UT Austin",
- 		"title" : "Graduate Research Assisstant",
+ 		"title" : "Graduate Research Assistant",
  		"dates" : "May 2015 - May 2016",
  		"location" : "Austin, TX",
  		"description" : "Developed the web interface of ARLO - a machine learning system that helps search content \
@@ -85,18 +88,18 @@ This is empty on purpose! Your code to build the resume will go here.
  	{
  		"name" : "The University of Texas at Austin",
  		"degree" : "Master of Science",
- 		"location" : "Austin",
- 		"majors" : ["Software Engineering"],
- 		"dates" : "2014-2016",
- 		"url" : "www.utexas.edu"
+ 		"location" : "Austin, TX",
+ 		"majors" : ["Software Engineering (GPA: 3.67)"],
+ 		"dates" : "Aug 2014 - May 2016",
+ 		"url" : "https://www.utexas.edu"
  	},
  	{
- 		"name" : "University of Delhi",
+ 		"name" : "University of Delhi, NSIT",
  		"degree" : "Bachelor of Engineering",
  		"location" : "Delhi, India",
- 		"majors" : ["Electronics Engineering"],
- 		"dates" : "2007-2011",
- 		"url" : "www.nsit.ac.in"
+ 		"majors" : ["Electronics Engineering ( 85.50%, Gold Medalist )"],
+ 		"dates" : "Aug 2007- Jun 2011",
+ 		"url" : "http://nsit.ac.in"
 
  	}
  ]
@@ -122,7 +125,7 @@ This is empty on purpose! Your code to build the resume will go here.
 								Integrated the Facebook API to identify users and the Google Places \
 								API to tag activity locations for a pet",
 		 		"image" : "",
-
+		 		"link" : "https://www.youtube.com/watch?v=sGyyXz0-lwc",
 		 	},
 		 	{
 		 		"title" : "Connexus PhotoSharing WebApp",
@@ -130,26 +133,38 @@ This is empty on purpose! Your code to build the resume will go here.
 		 		"description" : "Developed a website (full-stack, Google App Engine) that allows users to create  \
 		 						 photo albums with their Gmail account and explore other public photo albums. \n \
 		 						 Link: http://www.abhi-1085.appspot.com",
-		 		"image" : ""
+		 		"image" : "",
+		 		"link" : "http://www.abhi-1085.appspot.com",
 		 	},
 		 	{
 		 		"title" :  "Fashion Design with Genetic Algorithms",
 		 		"dates" :  "Dec 2008 – Jul 2009",
 		 		"description" : "Developed an interactive evolutionary system, that generated clothing designs,  \
 		 						got user feedback and attempted to create new designs as per liking of the user.",
-		 		"image" : ""
+		 		"image" : "",
+		 		"link" : "http://dl.acm.org/citation.cfm?id=2001980&dl=ACM&coll=DL&CFID=728007261&CFTOKEN=56320692",
+		 	},
+		 	{
+		 		"title" : "Responsive Multi-User Blog",
+		 		"dates" : "Jan 2017 - Feb 2017",
+		 		"description" : "Developed a responsive website (full-stack, Google App Engine) \
+		 						 that allows users to create blog entries, comment on/like/dislike other’s posts. \
+		 						 Customized design to ensure efficient view on mobile devices. ",
+		 		"image" : "",
+		 		"link" : "https://mu-blog-5551.appspot.com/",
 		 	}
  	],
  	"display" : function() {
  					projects.projects.forEach(function(element) {
  						$("#projects").append(HTMLprojectStart);
 
- 						var formattedTitle = HTMLprojectTitle.replace("%data%",element.title);
+ 						var formattedTitle2 = HTMLprojectTitle.replace("%data%",element.title);
+ 						formattedTitle2 = formattedTitle2.replace("%projectlink%", element.link);
 						var formatedDates = HTMLprojectDates.replace("%data%",element.dates);
 						var formattedDescription = HTMLprojectDescription.replace("%data%",element.description);
 						var formattedImg = HTMLprojectImage.replace("%data%",element.image);
 
-						$(".project-entry:last").append(formattedTitle);
+						$(".project-entry:last").append(formattedTitle2);
 						$(".project-entry:last").append(formatedDates);
 						$(".project-entry:last").append(formattedDescription);
 						$(".project-entry:last").append(formattedImg);
@@ -162,7 +177,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
  var formattedName = HTMLheaderName.replace('%data%', name);
  console.log(formattedName)
- 
+
 
  var formattedRole = HTMLheaderRole.replace('%data%', role);
  var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
@@ -176,17 +191,28 @@ This is empty on purpose! Your code to build the resume will go here.
  // var formattedSkills = HTMLskills.replace('%data%', skills);
 
 
+$("#header").prepend(formattedWelMsg);
+$("#header").prepend(formattedPicUrl);
+$("#header").prepend(formattedLocation);
+$("#header").prepend(formattedBlog);
+$("#header").prepend(formattedGithub);
+$("#header").prepend(formattedMobile);
+$("#header").prepend(formattedEmail);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+
 
 
 if (bio.skills.length > 0) {
-	
+
 	$("#header").append(HTMLskillsStart);
 
 	for (skill in bio.skills ) {
 		var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
 		$("#skills").append(formattedSkill);
 	}
-	
+
 }
 
 
@@ -203,7 +229,7 @@ function displayWork() {
 
 			var formattedDates = HTMLworkDates.replace('%data%',work.jobs[jobIdx].dates);
 			var formattedLoc = HTMLworkLocation.replace('%data%',work.jobs[jobIdx].location);
-			var formattedDescrip = HTMLworkDescription.replace('%data%',work.jobs[jobIdx].description); 
+			var formattedDescrip = HTMLworkDescription.replace('%data%',work.jobs[jobIdx].description);
 
 
 
@@ -219,6 +245,35 @@ function displayWork() {
 displayWork();
 
 projects.display();
+
+
+// Display Education
+
+function displayEducation() {
+
+	for (schoolIdx in education.schools) {
+
+			$("#education").append(HTMLschoolStart);
+
+			var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[schoolIdx].name);
+			formattedSchoolName = formattedSchoolName.replace('%schoollink%', education.schools[schoolIdx].url);
+			var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[schoolIdx].degree);
+
+			var formattedDates = HTMLschoolDates.replace('%data%', education.schools[schoolIdx].dates);
+			var formattedLoc = HTMLschoolLocation.replace('%data%', education.schools[schoolIdx].location);
+			var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[schoolIdx].majors);
+
+			$(".education-entry:last").append(formattedSchoolName+formattedDegree);
+			$(".education-entry:last").append(formattedDates);
+			$(".education-entry:last").append(formattedLoc);
+			$(".education-entry:last").append(formattedMajor);
+	}
+
+}
+
+displayEducation();
+
+
 
 
 // Collecting click locations for the page
@@ -240,20 +295,20 @@ function inName(){
 }
 
 $("#mapDiv").append(googleMap);
- 
+
  // $("#header").prepend(formattedSkills);
- // $("#header").prepend(HTMLskillsStart); 
- $("#header").prepend(formattedWelMsg);
- $("#header").prepend(formattedPicUrl);
- $("#header").prepend(formattedLocation);
- $("#header").prepend(formattedBlog);
- $("#header").prepend(formattedGithub);
- $("#header").prepend(formattedMobile);
- $("#header").prepend(formattedEmail);
- $("#header").prepend(formattedRole);
- $("#header").prepend(formattedName);
+ // $("#header").prepend(HTMLskillsStart);
+ // $("#header").prepend(formattedWelMsg);
+ // $("#header").prepend(formattedPicUrl);
+ // $("#header").prepend(formattedLocation);
+ // $("#header").prepend(formattedBlog);
+ // $("#header").prepend(formattedGithub);
+ // $("#header").prepend(formattedMobile);
+ // $("#header").prepend(formattedEmail);
+ // $("#header").prepend(formattedRole);
+ // $("#header").prepend(formattedName);
 
 
 
- 
- 
+
+
