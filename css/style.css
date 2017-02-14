@@ -133,14 +133,14 @@ a {
 }
 
 .flex-box {
-/*  display: -webkit-flex;
+  display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;*/
-  display: inline-flex;
-  width: 100%;
+  padding: 10px;
+  /*display: inline-flex;
+  width: 100%;*/
 }
 
 .flex-column {
